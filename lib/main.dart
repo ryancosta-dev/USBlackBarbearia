@@ -1,4 +1,6 @@
+
 import 'package:flutter/material.dart';
+import 'cadastro_page.dart';
 
 void main() {
   runApp(const USBlackBarbeariaApp());
@@ -66,7 +68,6 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   const SizedBox(height: 20),
 
-                  // LOGO
                   Container(
                     width: 110,
                     height: 110,
@@ -137,7 +138,6 @@ class _LoginPageState extends State<LoginPage> {
 
                   const SizedBox(height: 28),
 
-                  // E-MAIL
                   TextField(
                     controller: emailController,
                     keyboardType: TextInputType.emailAddress,
@@ -164,7 +164,6 @@ class _LoginPageState extends State<LoginPage> {
 
                   const SizedBox(height: 18),
 
-                  // SENHA
                   TextField(
                     controller: senhaController,
                     obscureText: !mostrarSenha,
@@ -218,7 +217,6 @@ class _LoginPageState extends State<LoginPage> {
 
                   const SizedBox(height: 18),
 
-                  // ENTRAR
                   SizedBox(
                     width: double.infinity,
                     height: 55,
@@ -247,12 +245,21 @@ class _LoginPageState extends State<LoginPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text(
-                        'Ainda não tem uma conta? ',
-                        style: TextStyle(color: Colors.white60),
+                      const Flexible(
+                        child: Text(
+                          'Ainda não tem uma conta? ',
+                          style: TextStyle(color: Colors.white60),
+                        ),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const CadastroPage(),
+                            ),
+                          );
+                        },
                         child: const Text(
                           'Criar conta',
                           style: TextStyle(
